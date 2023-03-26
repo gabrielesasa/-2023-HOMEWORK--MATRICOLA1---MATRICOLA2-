@@ -17,6 +17,7 @@ public class Partita {
 
 	private boolean finita;
 	private Labirinto labirinto=new Labirinto();
+
 	private Giocatore giocatore=new Giocatore();
 
 	public Partita(){
@@ -55,5 +56,8 @@ public class Partita {
 		this.finita = true;
 	}
 
+	public Labirinto getLabirinto() {
+		return labirinto;
+	}
 
 }

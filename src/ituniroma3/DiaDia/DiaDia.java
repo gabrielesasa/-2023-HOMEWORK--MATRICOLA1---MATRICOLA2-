@@ -29,11 +29,14 @@ public class DiaDia {
 	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
 
 	private Partita partita;
-	private Partita labirintoAppogio;
+	private Stanza stanzaCorrente;
 	private Giocatore giocatore;
+	private Labirinto labirinto;
+	
 
 	public DiaDia() {
 		this.partita = new Partita();
+		
 	}
 
 	public void gioca() {
@@ -63,7 +66,7 @@ public class DiaDia {
 		else if (comandoDaEseguire.getNome().equals("aiuto"))
 			this.aiuto();
 		else if(comandoDaEseguire.getNome().equals("prendi"))
-			this.prendi();
+			this.prendi("osso");
 		else
 			System.out.println("Comando sconosciuto");
 		if (this.partita.vinta()) {
@@ -108,6 +111,13 @@ public class DiaDia {
 	 * Comando "prendi".
 	 */
 	public void prendi(String nomeAttrezzo) {
+		labirinto=partita.getLabirinto();
+		stanzaCorrente=labirinto.getStanzaCorrente();
+		
+	
+		if(stanzaCorrente.removeAttrezzo(nomeAttrezzo)) {
+			System.out.print("attrezzo eliminto");
+		}
 		
 	}
 
@@ -121,6 +131,7 @@ public class DiaDia {
 	public static void main(String[] argc) {
 		
 		DiaDia gioco = new DiaDia();
+	
 		gioco.gioca();
 	}
 }

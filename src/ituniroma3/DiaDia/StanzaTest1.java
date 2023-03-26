@@ -10,12 +10,21 @@ public class StanzaTest1 {
 		System.out.print("test metodo get " + stanzaTest.getStanzaAdiacente("nord")+ "\n");
 		System.out.print("test metodo get " + stanzaTest.getStanzaAdiacente("nord")+ "\n");
 		stanzaTest.addAttrezzo(primoattrezzo);
-		stanzaTest2.addAttrezzo(primoattrezzo2);
+		stanzaTest.addAttrezzo(primoattrezzo2);
 		if(stanzaTest.hasAttrezzo("spada"))
 			System.out.print("attrezzo trovato\n\n");
 		else
 			System.out.print("attrezzo non trovato\n\n");
-		System.out.print("riferimento array attrezzo" + stanzaTest.getAttrezzi() + "\n\n");
+		System.out.print("oggetti dentro arry ");
+		stanzaTest.getAttrezzi();
+		System.out.print("\n\n");
+		stanzaTest.removeAttrezzo("tazzina") ;
+		
+		
+		System.out.print("\n\n");
+		System.out.print("oggetti dentro arry dopo ");
+		stanzaTest.getAttrezzi();
+		System.out.print("\n\n");
 		System.out.print("riferimento arry direzioni" + stanzaTest.getDirezioni() + "\n\n");
 		System.out.print(stanzaTest.getDescrizione());
 		System.out.print(stanzaTest2.getDescrizione());

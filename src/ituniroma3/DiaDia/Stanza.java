@@ -88,8 +88,13 @@ public class Stanza {
      * Restituisce la collezione di attrezzi presenti nella stanza.
      * @return la collezione di attrezzi nella stanza.
      */
-    public Attrezzo[] getAttrezzi() {
-        return this.attrezzi;
+    public void getAttrezzi() {
+        for(Attrezzo attrezzi: this.attrezzi) {
+        	if(attrezzi != null) {
+        		System.out.print(attrezzi);
+        	}
+        }
+        	
     }
 
     /**
@@ -165,20 +170,26 @@ public class Stanza {
 	 * @param nomeAttrezzo
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
-	public boolean removeAttrezzo(Attrezzo attrezzo) {
+	public boolean removeAttrezzo(String attrezzo) {
 		int i=0;
-		
+		boolean trovato = false;
 		for(Attrezzo attrezzoCercato:this.attrezzi) {
-			if(attrezzoCercato.getNome().equals(attrezzo)) {
-				attrezzi[i]=null;
-				return true;
+			
+			if(attrezzoCercato != null) {
+				
+				if(attrezzoCercato.getNome().equals(attrezzo)) {
+					
+					attrezzi[i]=null;
+					trovato=true;
+					
+				}
+				i++;
 			}
-			i++;
+			
+			
 		}
-		
-		return false;
+		return trovato;
 	}
-
 
 	public String[] getDirezioni() {
 		String[] direzioni = new String[this.numeroStanzeAdiacenti];
